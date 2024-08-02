@@ -12,10 +12,10 @@ app.use(bodyParser.json());
 
 // Create MySQL connection
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'c237_ecoquest'
+    host: 'sql.freedb.tech',
+    user: 'freedb_Brayden',
+    password: 'X!KaCq!dD5@Tx&V',
+    database: 'freedb_c237_ecoquest'
 });
 connection.connect((err) => {
     if (err) {
