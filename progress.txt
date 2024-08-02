@@ -1,0 +1,19 @@
+Donation update is non-functional.
+
+There is no add or edit article/question CRUD for admins
+
+Quiz is not functional, the options picked by the user are not implemented in the database and the quiz cannot be marked, meaning the user also cannot gain any points for doing the quiz.
+
+Login/Register is fully functional
+
+Leaderboard is fine
+
+Home page works
+
+Couldn't implement dark mode
+
+Couldn't implement ads/ turn off ads button
+
+Progress grade: 3/10
+
+Website is garbage sorry

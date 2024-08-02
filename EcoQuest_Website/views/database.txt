@@ -1,0 +1,53 @@
+
+account
+- `account_id` (Primary Key, int)
+- `email` (varchar)
+- `isAdmin` (bit)
+- `password` (varchar)
+- `points_donated` (int, NULL, nullable)
+- `quiz_completed` (int, NULL, nullable)
+- `total_points` (int, NULL, nullable)
+- `username` (varchar, NULL, nullable)
+
+article
+- `article_id` (Primary Key, int)
+- `content` (mediumtext)
+- `image` (varchar)
+- `link` (varchar)
+- `points_scored` (int, NULL, nullable)
+- `title` (varchar)
+- `total_points` (int)
+
+charity
+- `charity_id` (Primary Key, int)
+- `donation_info_msg` (varchar)
+- `image` (varchar)
+- `name` (varchar)
+
+choices
+- `article_id` (Foreign Key, int, Index)
+- `choice_1` (varchar)
+- `choice_2` (varchar)
+- `choice_3` (varchar)
+- `choice_4` (varchar)
+- `correct_choice` (varchar)
+- `question_id` (Foreign Key, int, Index)
+
+question
+- `article_id` (Foreign Key, int, Index)
+- `point_worth` (int)
+- `question` (varchar)
+- `question_id` (Primary Key, int)
+
+user_choice
+- `article_id` (Foreign Key, int, Index)
+- `chosen_choice` (varchar, NULL, nullable)
+- `question_id` (Foreign Key, int, Index)
+- `user_id` (Foreign Key, int, Index)
+
+ Indexes
+- `article`: Index on `article_id`, Primary Key on `article_id`
+- `choices`: Index on `article_id`, Index on `question_id`
+- `question`: Index on `article_id`, Primary Key on `question_id`
+- `user_choice`: Index on `article_id`, Index on `question_id`, Index on `user_id`
+

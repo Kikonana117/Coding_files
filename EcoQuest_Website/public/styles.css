@@ -1,0 +1,42 @@
+body {
+    background-color: #e6f2ff; /* Light blue background */
+    transition: background-color 0.3s;
+  }
+  
+  .navbar navbar-expand-sm bg-dar {
+    background-color: #006600; /* Dark green navbar */
+    transition: background-color 0.3s;
+  }
+  
+  .navbar-brand {
+    color: #ffffff; /* White navbar text */
+  }
+  
+  .nav-link {
+    color: #ffffff; /* White nav links */
+  }
+  
+  .card {
+    background-color: #ccffcc; /* Light green cards */
+    transition: background-color 0.3s;
+  }
+  
+  .card-title {
+    color: #006600; /* Dark green card title */
+  }
+  
+  .card-text {
+    color: #333333; /* Dark gray card text */
+  }
+  
+  .btn-primary {
+    background-color: #006600; /* Dark green buttons */
+    border-color: #006600; /* Dark green button border */
+  }
+  
+  .btn-primary:hover {
+    background-color: #004d00; /* Darker green on hover */
+    border-color: #004d00; /* Darker green button border on hover */
+  }
+  
+  

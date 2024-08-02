@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="/styles.css">
+  <title>Home - EcoQuest
+</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/home/<%= user.account_id %>">EcoQuest</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/leaderboard/<%= user.account_id  %>">Leaderboard</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="/donation/<%= user.account_id  %>">Donation</a>
+      </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Logout</a>
+      </li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+  <div class="container">
+    <br>
+    <div class="text-center"><h2>Welcome to EcoQuest</h2></div>
+    <br>
+    <!-- Content for home page goes here -->
+    
+    <div class="container">
+      <br>
+      <div class="row justify-content-center">
+        <% for (let i = 0; i < articles.length; i++) { %>
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 w-100"> <!-- Add the "h-100" and "w-100" classes to make all cards the same height and width -->
+              <img src="/images/<%= articles[i].image %>" class="card-img-top" alt="appliance_image">
+              <div class="card-body">
+                <h5 class="card-title"><%= articles[i].title %></h5>
+                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#articleModal<%= i %>">Read More</a>
+              </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+
+      <!-- Article Modals -->
+      <% for (let i = 0; i < articles.length; i++) { %>
+        <div class="modal fade" id="articleModal<%= i %>" tabindex="-1" aria-labelledby="articleModalLabel<%= i %>" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="articleModalLabel<%= i %>"><%= articles[i].title %></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="/images/<%= articles[i].image %>" class="card-img-top" alt="appliance_image">
+                <p class="card-text"><%= articles[i].content %></p>
+              </div>
+              <div class="modal-footer">
+                <a href="<%= articles[i].link %>" class="btn btn-primary" target="_blank">Read Full Article</a>
+                <a href="/quiz/<%= user.account_id %>/<%= articles[i].article_id %>" class="btn btn-primary">Quiz Me!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+</body>
+</html>
